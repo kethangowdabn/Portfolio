@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <style>
+    /* ---------- BASIC STYLES ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0e0e0e;
+      color: #fff;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      color: #00ffff;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      animation: fadeInUp 1s ease;
+    }
+
+    /* ---------- HERO SECTION ---------- */
+    #home {
+      text-align: center;
+      background: linear-gradient(180deg, #111, #0e0e0e);
+    }
+
+    #home h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: textGlow 2s infinite alternate;
+    }
+
+    #home p {
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ---------- ABOUT SECTION ---------- */
+    #about {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    #about img {
+      width: 250px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #00ffff55;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    #about div {
+      flex: 1;
+    }
+
+    #about h3 {
+      font-size: 2rem;
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    #about p {
+      color: #ccc;
+      line-height: 1.6;
+    }
+
+    /* ---------- PROJECTS SECTION ---------- */
+    #projects {
+      text-align: center;
+    }
+
+    .project-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .project {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+    }
+
+    .project:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #00ffff55;
+    }
+
+    .project h4 {
+      margin-bottom: 0.5rem;
+      color: #00ffff;
+    }
+
+    /* ---------- CONTACT SECTION ---------- */
+    #contact {
+      text-align: center;
+    }
+
+    #contact a {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border: 2px solid #00ffff;
+      border-radius: 2rem;
+      color: #00ffff;
+      text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #contact a:hover {
+      background: #00ffff;
+      color: #000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #111;
+      color: #777;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes textGlow {
+      from { text-shadow: 0 0 10px #00ffff; }
+      to { text-shadow: 0 0 25px #00ffff; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      header h1 { font-size: 1.2rem; }
+      #home h2 { font-size: 2.2rem; }
+      #about { flex-direction: column; text-align: center; }
+      #about img { width: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MyPortfolio</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Hello, I'm <span style="color:#00ffff;">Kethan Gowda B N </span></h2>
+    <p>A data scientist is a professional who uses statistics, programming, and machine learning to extract insights and make data-driven decisions. . Welcome to my digital space!</p>
+  </section>
+
+  <section id="about">
+    <img src="https://via.placeholder.com/250" alt="Profile Photo" />
+    <div>
+      <h3>About Me</h3>
+      <p>I’m a developer who enjoys turning ideas into reality through code. My focus is on creating smooth, interactive, and accessible web experiences. I love experimenting with design and animations to make the web feel alive.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h3 style="color:#00ffff;">Projects</h3>
+    <div class="project-container">
+      <div class="project">
+        <h4>Project One</h4>
+        <p>A responsive landing page built with HTML, CSS, and JS.</p>
+      </div>
+      <div class="project">
+        <h4>Project Two</h4>
+        <p>A simple portfolio with smooth animations and clean design.</p>
+      </div>
+      <div class="project">
+        <h4>Project Three</h4>
+        <p>A modern app layout with dark mode and CSS transitions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h3 style="color:#00ffff;">Contact Me</h3>
+    <p>Let's connect and create something awesome!</p>
+    <a href="mailto:youremail@example.com">Email</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">GitHub</a>
+  </section>
+
+  <footer>
+    <p>© 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
