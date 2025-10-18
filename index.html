@@ -10,329 +10,320 @@
   <style>
     html { scroll-padding-top: 120px; }
     * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; font-family: 'Poppins', sans-serif; }
-    body { background: linear-gradient(135deg, #f2f8ff, #e4f0ff, #d6e8ff); color: #222; overflow-x: hidden; font-size: 1.1rem; }
+    body { background: linear-gradient(135deg, #f2f8ff, #e4f0ff, #d6e8ff); color: #222; font-size: 1.1rem; overflow-x: hidden; }
 
     header {
-      position: fixed; top: 0; width: 100%;
-      background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px);
-      padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(255,255,255,0.9); backdrop-filter: blur(12px);
+      padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     }
     header h1 { font-size: 1.8rem; color: #005b96; font-weight: 600; }
-    nav a { color: #333; text-decoration: none; margin-left: 2rem; font-weight: 500; font-size: 1.05rem; transition: color 0.2s ease, text-shadow 0.2s ease; }
-    nav a:hover { color: #008cba; text-shadow: 0 0 10px rgba(0, 140, 186, 0.3); }
+    nav { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem; }
+    nav a { color: #333; text-decoration: none; font-weight: 500; font-size: 1.05rem; transition: color 0.2s, text-shadow 0.2s; }
+    nav a:hover { color: #008cba; text-shadow: 0 0 10px rgba(0,140,186,0.3); }
 
     section { min-height: 100vh; padding: 120px 10%; display: flex; flex-direction: column; justify-content: center; }
 
     /* HERO */
-    #home { text-align: center; background: linear-gradient(180deg, #ffffff 0%, #e6f0ff 100%); border-bottom: 1px solid rgba(0,0,0,0.05); }
-    #home h2 { font-size: 3.2rem; margin-bottom: 1rem; color: #003f63; }
-    #home span { color: #008cba }
-    #home p { font-size: 1.3rem; color: #444; max-width: 750px; margin: 0 auto; line-height: 1.8; }
+    #home { text-align: center; background: linear-gradient(180deg,#fff 0%,#e6f0ff 100%); border-bottom: 1px solid rgba(0,0,0,0.05); }
+    #home h2 { font-size: 3rem; margin-bottom: 1rem; color: #003f63; }
+    #home span { color: #008cba; }
+    #home p { font-size: 1.2rem; color: #444; max-width: 700px; margin: 0 auto; line-height: 1.7; }
 
     /* ABOUT */
-    #about { display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
-    #about img { width: 280px; border-radius: 50%; box-shadow: 0 0 25px rgba(0,140,186,0.3); }
-    #about div { flex: 1; }
-    #about h3 { font-size: 2.3rem; color: #005b96; margin-bottom: 1rem; }
-    #about p { color: #333; line-height: 1.8; font-weight: 300; font-size: 1.1rem; }
-    #about .resume-btn { margin-top: 1.5rem; display: inline-block; background: #008cba; color: white; padding: 0.8rem 1.8rem; border-radius: 2rem; text-decoration: none; font-weight: 500; transition: background 0.3s ease, box-shadow 0.3s ease; }
-    #about .resume-btn:hover { box-shadow: 0 0 15px rgba(0,140,186,0.4); background: #0074a3; }
+    #about { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+    #about img { width: 220px; border-radius: 50%; box-shadow: 0 0 25px rgba(0,140,186,0.3); }
+    #about div { flex: 1; min-width: 250px; }
+    #about h3 { font-size: 2rem; color: #005b96; margin-bottom: 1rem; }
+    #about p { color: #333; line-height: 1.7; font-weight: 300; font-size: 1rem; }
+    #about .resume-btn { margin-top: 1.5rem; display: inline-block; background: #008cba; color: #fff; padding: 0.7rem 1.6rem; border-radius: 2rem; text-decoration: none; font-weight: 500; transition: background 0.3s, box-shadow 0.3s; }
+    #about .resume-btn:hover { background: #0074a3; box-shadow: 0 0 15px rgba(0,140,186,0.4); }
 
     /* SKILLS */
-    #skills { text-align: center; background: linear-gradient(180deg, #e6f2ff, #ffffff); padding: 100px 10%; }
-    #skills h3 { color: #005b96; font-size: 2.3rem; margin-bottom: 2rem; }
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.5rem; justify-items: center; }
-    .skill { background: #ffffff; border: 1px solid rgba(0,0,0,0.05); padding: 1rem 1.5rem; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,140,186,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    #skills { text-align: center; background: linear-gradient(180deg,#e6f2ff,#fff); padding: 80px 10%; }
+    #skills h3 { color: #005b96; font-size: 2rem; margin-bottom: 2rem; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(120px,1fr)); gap: 1rem; justify-items: center; }
+    .skill { background: #fff; border: 1px solid rgba(0,0,0,0.05); padding: 0.8rem 1rem; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,140,186,0.1); transition: transform 0.3s, box-shadow 0.3s; text-align: center; }
     .skill:hover { transform: translateY(-6px); box-shadow: 0 6px 20px rgba(0,140,186,0.2); }
 
     /* EDUCATION & EXPERIENCE */
-    #education-experience { text-align: center; background: linear-gradient(180deg, #d6e8ff, #ffffff); padding: 100px 10%; }
-    #education-experience h3 { color: #005b96; font-size: 2.3rem; margin-bottom: 2rem; }
+    #education-experience { text-align: center; background: linear-gradient(180deg,#d6e8ff,#fff); padding: 80px 10%; }
+    #education-experience h3 { color: #005b96; font-size: 2rem; margin-bottom: 2rem; }
     .timeline { position: relative; margin-top: 2rem; }
     .timeline::before { content: ''; position: absolute; left: 50%; top: 0; width: 4px; height: 100%; background: #008cba; transform: translateX(-50%); }
-    .timeline-item { position: relative; width: 45%; background: #ffffff; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 1.5rem 0; }
-    .timeline-item:nth-child(odd) { left: 0; }
-    .timeline-item:nth-child(even) { left: 55%; }
-    .timeline-item h4 { color: #008cba; margin-bottom: 0.5rem; }
-    .timeline-item span { font-size: 0.9rem; color: #555; }
-    .timeline-item p { margin-top: 0.5rem; color: #333; font-weight: 300; }
+    .timeline-item { position: relative; width: 45%; background: #fff; padding: 1.2rem; border-radius: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 1.5rem 0; }
+    .timeline-item:nth-child(odd){ left: 0; }
+    .timeline-item:nth-child(even){ left: 55%; }
+    .timeline-item h4{ color: #008cba; margin-bottom: 0.5rem; }
+    .timeline-item span{ font-size: 0.85rem; color: #555; }
+    .timeline-item p{ margin-top: 0.5rem; color: #333; font-weight: 300; font-size: 0.95rem; }
 
     /* PROJECTS */
-    #projects { text-align: center; }
-    .project-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-    .project { background: #ffffff; padding: 2rem; border-radius: 1rem; border: 1px solid rgba(0, 0, 0, 0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
-    .project:hover { transform: translateY(-8px); box-shadow: 0 6px 20px rgba(0, 140, 186,0.2); }
-    .project h4 { color: #008cba; margin-bottom: 0.7rem; }
-    .project p { color: #333; font-weight: 300; }
+    #projects{ text-align:center; padding:80px 10%; }
+    .project-container{ display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; margin-top:2rem; }
+    .project{ background:#fff; padding:1.5rem; border-radius:1rem; border:1px solid rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; cursor:pointer; text-align:center; }
+    .project:hover{ transform: translateY(-6px); box-shadow:0 6px 20px rgba(0,140,186,0.2); }
+    .project h4{ color:#008cba; margin-bottom:0.5rem; }
+    .project p{ color:#333; font-weight:300; font-size:0.95rem; }
 
     /* ACHIEVEMENTS */
-    #achievements { background: #f9fcff; text-align: center; padding: 100px 10%; }
-    #achievements h3 { color: #005b96; font-size: 2.3rem; margin-bottom: 1.5rem; }
-    .achievements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-    .achievement { background: #fff; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 4px 12px rgba(0,140,186,0.1); transition: transform 0.3s ease; }
-    .achievement:hover { transform: translateY(-6px); }
+    #achievements{ background:#f9fcff; text-align:center; padding:80px 10%; }
+    #achievements h3{ color:#005b96; font-size:2rem; margin-bottom:1.5rem; }
+    .achievements-grid{ display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:1rem; }
+    .achievement{ background:#fff; padding:1rem; border-radius:1rem; box-shadow:0 4px 12px rgba(0,140,186,0.1); transition: transform 0.3s; }
+    .achievement:hover{ transform: translateY(-6px); }
 
     /* CONTACT */
-    #contact { text-align: center; background: linear-gradient(180deg, #e6f2ff, #ffffff); }
-    #contact h3 { color: #005b96; font-size: 2.3rem; margin-bottom: 1rem; }
-    #contact a { display: inline-block; margin: 0.5rem; padding: 0.9rem 2rem; border: 2px solid #008cba; border-radius: 2rem; color: #008cba; text-decoration: none; font-weight: 500; transition: background 0.3s ease, color 0.3s ease; }
-    #contact a:hover { background: #008cba; color: #fff; }
-
-    footer { text-align: center; padding: 1.5rem 0; background: #f7faff; color: #555; }
-    footer .socials i { font-size: 1.5rem; margin: 0 0.7rem; color: #008cba; transition: transform 0.3s ease; }
-    footer .socials i:hover { transform: translateY(-4px); }
-
-    @media (max-width: 768px) {
-      .timeline::before { left: 10px; }
-      .timeline-item { width: 100%; left: 0 !important; }
-    }
+    #contact{ text-align:center; background: linear-gradient(180deg,#e6f2ff,#fff); padding:60px 10%; }
+    #contact h3{ color:#005b96; font-size:2rem; margin-bottom:0.8rem; }
+    #contact a{ display:inline-block; margin:0.5rem; padding:0.7rem 1.6rem; border:2px solid #008cba; border-radius:2rem; color:#008cba; text-decoration:none; font-weight:500; transition: background 0.3s, color 0.3s; }
+    #contact a:hover{ background:#008cba; color:#fff; }
 
     /* FEEDBACK */
-    .feedback { background: #ffffff; padding: 1rem 1.5rem; border-radius: 1rem; margin-bottom: 1rem; box-shadow: 0 4px 12px rgba(0,140,186,0.1); }
-    .feedback-form { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
-    .feedback-form input, .feedback-form textarea { padding: 0.7rem 1rem; border-radius: 0.5rem; border: 1px solid #ccc; width: 100%; }
-    .feedback-form button { padding: 0.7rem 1.5rem; border-radius: 1rem; border: none; background: #008cba; color: white; cursor: pointer; transition: background 0.3s; }
-    .feedback-form button:hover { background: #0074a3; }
-    .delete-btn { margin-top: 0.5rem; padding: 0.3rem 0.7rem; font-size: 0.8rem; border: none; background: #ff4d4d; color: white; border-radius: 0.3rem; cursor: pointer; }
-    .delete-btn:hover { background: #e60000; }
+    .feedback { background:#fff; padding:1rem 1.2rem; border-radius:1rem; margin-bottom:1rem; box-shadow:0 4px 12px rgba(0,140,186,0.1); }
+    .feedback-form{ margin-top:2rem; display:flex; flex-direction:column; gap:0.5rem; max-width:500px; margin-left:auto; margin-right:auto; }
+    .feedback-form input, .feedback-form textarea{ padding:0.7rem 1rem; border-radius:0.5rem; border:1px solid #ccc; width:100%; }
+    .feedback-form button{ padding:0.7rem 1.5rem; border-radius:1rem; border:none; background:#008cba; color:white; cursor:pointer; transition: background 0.3s; }
+    .feedback-form button:hover{ background:#0074a3; }
+    .delete-btn{ margin-top:0.5rem; padding:0.3rem 0.7rem; font-size:0.8rem; border:none; background:#ff4d4d; color:white; border-radius:0.3rem; cursor:pointer; }
+    .delete-btn:hover{ background:#e60000; }
 
     /* PASSWORD MODAL */
-    .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
-    .modal-content { background-color: #fff; margin: 15% auto; padding: 2rem; border-radius: 1rem; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 4px 25px rgba(0,0,0,0.2); animation: fadeIn 0.3s ease; transition: all 0.3s ease; }
-    .modal input { width: 100%; padding: 0.7rem 1rem; margin: 1rem 0; border-radius: 0.5rem; border: 1px solid #ccc; font-size: 1rem; transition: all 0.3s ease; }
-    .modal button { padding: 0.6rem 1.5rem; border: none; border-radius: 1rem; background: #008cba; color: #fff; cursor: pointer; margin: 0 0.5rem; transition: background 0.3s; }
-    .modal button:hover { background: #0074a3; }
-    #togglePassword { position:absolute; top:50%; right:0.8rem; transform: translateY(-50%); cursor:pointer; color:#555; transition: color 0.3s; }
-    #togglePassword:hover { color: #008cba; }
+    .modal{ display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); }
+    .modal-content{ background:#fff; margin:15% auto; padding:2rem; border-radius:1rem; width:90%; max-width:400px; text-align:center; box-shadow:0 4px 25px rgba(0,0,0,0.2); }
+    .modal input{ width:100%; padding:0.7rem 1rem; margin:1rem 0; border-radius:0.5rem; border:1px solid #ccc; font-size:1rem; }
+    .modal button{ padding:0.6rem 1.5rem; border:none; border-radius:1rem; background:#008cba; color:#fff; cursor:pointer; margin:0 0.5rem; }
+    .modal button:hover{ background:#0074a3; }
+    #togglePassword{ position:absolute; top:50%; right:0.8rem; transform:translateY(-50%); cursor:pointer; color:#555; }
+    #togglePassword:hover{ color:#008cba; }
 
     /* Animations */
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes shake { 0%,100%{transform:translateX(0);} 25%{transform:translateX(-8px);} 50%{transform:translateX(8px);} 75%{transform:translateX(-8px);} }
-    .wrong { animation: shake 0.3s; border: 2px solid red !important; }
-    .correct { box-shadow: 0 0 15px 4px #2ecc71 !important; transition: box-shadow 0.3s; }
+    @keyframes shake {0%,100%{transform:translateX(0);}25%{transform:translateX(-8px);}50%{transform:translateX(8px);}75%{transform:translateX(-8px);}}
+    .wrong{ animation:shake 0.3s; border:2px solid red !important; }
+    .correct{ box-shadow:0 0 15px 4px #2ecc71 !important; transition: box-shadow 0.3s; }
+
+    footer{ text-align:center; padding:1.2rem 0; background:#f7faff; color:#555; }
+    footer .socials i{ font-size:1.3rem; margin:0 0.5rem; color:#008cba; transition: transform 0.3s; }
+    footer .socials i:hover{ transform:translateY(-3px); }
+
+    /* MEDIA QUERIES */
+    @media (max-width:1024px){ #home h2{ font-size:2.4rem; } #about img{ width:200px; } }
+    @media (max-width:768px){
+      header{ flex-direction: column; padding:0.8rem 5%; }
+      nav{ margin-top:0.5rem; gap:0.5rem; }
+      .timeline::before{ left:10px; }
+      .timeline-item{ width:100% !important; left:0 !important; margin-bottom:1rem; }
+      #home h2{ font-size:2rem; } #home p{ font-size:1rem; }
+      #about img{ width:180px; }
+      .skills-grid{ grid-template-columns: repeat(auto-fit,minmax(100px,1fr)); }
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>MyPortfolio</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#education-experience">Education & Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header>
+  <h1>MyPortfolio</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education-experience">Education & Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <!-- HERO -->
-  <section id="home">
-    <h2>Hello, I'm <span>Kethan Gowda B N</span></h2>
-    <p>A data scientist passionate about discovering insights through data, building intelligent systems, and designing elegant digital experiences.</p>
-  </section>
+<section id="home">
+  <h2>Hello, I'm <span>Kethan Gowda B N</span></h2>
+  <p>A data scientist passionate about discovering insights through data, building intelligent systems, and designing elegant digital experiences.</p>
+</section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <img src="Adobe_Express_-_file-removebg-preview.png" alt="Photo of Kethan Gowda B N">
-    <div>
-      <h3>About Me</h3>
-      <p>I am a Data Science student at the University of Salford with a passion for using data to uncover insights and drive informed decisions. My studies have equipped me with skills in Python, SQL, data visualization, and machine learning. I enjoy working on real-world projects that combine analytical thinking with creativity to solve complex problems. I’m continuously learning and exploring new technologies to grow as a data-driven professional.</p>
-      <a href="Kethan resume.pdf" class="resume-btn" target="_blank">View Resume</a>
+<section id="about">
+  <img src="Adobe_Express_-_file-removebg-preview.png" alt="Photo of Kethan Gowda B N">
+  <div>
+    <h3>About Me</h3>
+    <p>I am a Data Science student at the University of Salford with a passion for using data to uncover insights and drive informed decisions. My studies have equipped me with skills in Python, SQL, data visualization, and machine learning. I enjoy working on real-world projects that combine analytical thinking with creativity to solve complex problems. I’m continuously learning and exploring new technologies to grow as a data-driven professional.</p>
+    <a href="Kethan resume.pdf" class="resume-btn" target="_blank">View Resume</a>
+  </div>
+</section>
+
+<section id="skills">
+  <h3>My Skills</h3>
+  <div class="skills-grid">
+    <div class="skill"><i class="fa-brands fa-python"></i><br>Python</div>
+    <div class="skill"><i class="fa-solid fa-brain"></i><br>Machine Learning</div>
+    <div class="skill"><i class="fa-solid fa-chart-line"></i><br>Data Visualization</div>
+    <div class="skill"><i class="fa-brands fa-html5"></i> <i class="fa-brands fa-css3-alt"></i><br>HTML & CSS</div>
+    <div class="skill"><i class="fa-solid fa-database"></i><br>SQL</div>
+  </div>
+</section>
+
+<section id="education-experience">
+  <h3>Education & Experience</h3>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4>M.Sc in Data Science - University of Salford</h4>
+      <span>Pursuing, 2025 - Expected 2026</span>
+      <p>Pursuing M.Sc. in Data Science to advance expertise in machine learning and analytics.</p>
     </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <h3>My Skills</h3>
-    <div class="skills-grid">
-      <div class="skill"><i class="fa-brands fa-python"></i><br>Python</div>
-      <div class="skill"><i class="fa-solid fa-brain"></i><br>Machine Learning</div>
-      <div class="skill"><i class="fa-solid fa-chart-line"></i><br>Data Visualization</div>
-      <div class="skill"><i class="fa-brands fa-html5"></i> <i class="fa-brands fa-css3-alt"></i><br>HTML & CSS</div>
-      <div class="skill"><i class="fa-solid fa-database"></i><br>SQL</div>
+    <div class="timeline-item">
+      <h4>Bachelor’s of Engineering in AI & Machine Learning</h4>
+      <span>2020 - 2024</span>
+      <p>Graduated with a focus on Data Science, AI, and full-stack web development.</p>
     </div>
-  </section>
-
-  <!-- EDUCATION & EXPERIENCE -->
-  <section id="education-experience">
-    <h3>Education & Experience</h3>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h4>M.Sc in Data Science - University of Salford</h4>
-        <span>Pursuing, 2025 - Expected 2026</span>
-        <p>Pursuing M.Sc. in Data Science to advance expertise in machine learning and analytics.</p>
-      </div>
-      <div class="timeline-item">
-        <h4>Bachelor’s of Engineering in AI & Machine Learning</h4>
-        <span>2020 - 2024</span>
-        <p>Graduated with a focus on Data Science, AI, and full-stack web development.</p>
-      </div>
-      <div class="timeline-item">
-        <h4>Data Analytics Intern - Edunet Foundation</h4>
-        <span>2024</span>
-        <p>Worked on predictive modeling using Python and PowerBI, achieving 95% accuracy.</p>
-      </div>
-      <div class="timeline-item">
-        <h4>Machine Learning Intern - Varcons Technology</h4>
-        <span>2023</span>
-        <p>Completed ML project with over 90% accuracy.</p>
-      </div>
-      <div class="timeline-item">
-        <h4>Equipment Engineering Trainee - Foxconn Hon Hai</h4>
-        <span>Jan 2024 - June 2024</span>
-        <p>Worked in the AOI department optimizing inspection systems and analyzing defect data.</p>
-      </div>
+    <div class="timeline-item">
+      <h4>Data Analytics Intern - Edunet Foundation</h4>
+      <span>2024</span>
+      <p>Worked on predictive modeling using Python and PowerBI, achieving 95% accuracy.</p>
     </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h3 style="color:#005b96;">Projects</h3>
-    <div class="project-container">
-      <div class="project">
-        <h4>Detection of Chronic Disease</h4>
-        <p>ML project predicting chronic diseases with 90%+ accuracy.</p>
-      </div>
-      <div class="project">
-        <h4>Smart irrigation using IoT</h4>
-        <p>IoT system automating irrigation based on soil and environmental data.</p>
-      </div>
-      <div class="project">
-        <h4>Bus Reservation System Management</h4>
-        <p>Web app with SQL, HTML, CSS for booking, schedules, and user data management.</p>
-      </div>
+    <div class="timeline-item">
+      <h4>Machine Learning Intern - Varcons Technology</h4>
+      <span>2023</span>
+      <p>Completed ML project with over 90% accuracy.</p>
     </div>
-  </section>
-
-  <!-- ACHIEVEMENTS -->
-  <section id="achievements">
-    <h3>Achievements & Highlights</h3>
-    <div class="achievements-grid">
-      <div class="achievement"><i class="fa-solid fa-trophy"></i> 1st place in Data Science Hackathon 2024</div>
-      <div class="achievement"><i class="fa-solid fa-certificate"></i> Certified in Machine Learning (Coursera)</div>
-      <div class="achievement"><i class="fa-solid fa-star"></i> Contributed to 5+ open-source projects</div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <h3>Contact Me</h3>
-    <p>Let's connect and collaborate!</p>
-    <a href="mailto:bnkg2345@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/kethan-gowda-b-n-4aa3b5251" target="_blank">LinkedIn</a>
-    <a href="https://github.com/kethangowdabn" target="_blank">GitHub</a>
-  </section>
-
-  <!-- FEEDBACK -->
-  <section id="feedback">
-    <h3 style="color:#005b96;">Feedback</h3>
-    <div class="feedback-container" id="feedback-container"></div>
-
-    <div class="feedback-form">
-      <h4>Submit Your Feedback</h4>
-      <input type="text" id="feedback-name" placeholder="Your Name" required>
-      <textarea id="feedback-text" rows="3" placeholder="Write your feedback here..." required></textarea>
-      <button onclick="addFeedback()">Submit Feedback</button>
-    </div>
-  </section>
-
-  <!-- Password Modal -->
-  <div id="passwordModal" class="modal">
-    <div class="modal-content">
-      <h4>Enter Admin Password</h4>
-      <div style="position: relative; display: inline-block; width: 80%;">
-        <input type="password" id="adminPasswordInput" placeholder="Password" style="width:100%; padding-right: 2.5rem;">
-        <i id="togglePassword" class="fa fa-eye"></i>
-      </div>
-      <div style="margin-top: 1rem;">
-        <button onclick="confirmDelete()">Confirm</button>
-        <button onclick="closeModal()">Cancel</button>
-      </div>
+    <div class="timeline-item">
+      <h4>Equipment Engineering Trainee - Foxconn Hon Hai</h4>
+      <span>Jan 2024 - June 2024</span>
+      <p>Worked in the AOI department optimizing inspection systems and analyzing defect data.</p>
     </div>
   </div>
+</section>
 
-  <script>
-    const adminPassword = "Kethan@8337";
-    let feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
-    let deleteIndex = null;
+<section id="projects">
+  <h3>Projects</h3>
+  <div class="project-container">
+    <div class="project">
+      <h4>Detection of Chronic Disease</h4>
+      <p>ML project predicting chronic diseases with 90%+ accuracy.</p>
+    </div>
+    <div class="project">
+      <h4>Smart irrigation using IoT</h4>
+      <p>IoT system automating irrigation based on soil and environmental data.</p>
+    </div>
+    <div class="project">
+      <h4>Bus Reservation System Management</h4>
+      <p>Web app with SQL, HTML, CSS for booking, schedules, and user data management.</p>
+    </div>
+  </div>
+</section>
 
-    function escapeHTML(str) {
-      return str.replace(/[&<>"']/g, tag => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[tag]));
-    }
+<!-- <section id="achievements">
+  <h3>Achievements & Highlights</h3>
+  <div class="achievements-grid">
+    <div class="achievement"><i class="fa-solid fa-trophy"></i> 1st place in Data Science Hackathon 2024</div>
+    <div class="achievement"><i class="fa-solid fa-certificate"></i> Certified in Machine Learning (Coursera)</div>
+    <div class="achievement"><i class="fa-solid fa-star"></i> Contributed to 5+ open-source projects</div>
+  </div>
+</section> -->
 
-    function renderFeedbacks() {
-      const container = document.getElementById('feedback-container');
-      container.innerHTML = '';
-      if(feedbacks.length===0){container.innerHTML='<p>No feedback yet. Be the first to submit one!</p>'; return;}
-      feedbacks.forEach((fb,index)=>{
-        const div=document.createElement('div');
-        div.classList.add('feedback');
-        div.innerHTML=`<p>"${escapeHTML(fb.text)}"</p><span>- ${escapeHTML(fb.name)}</span><button class="delete-btn" onclick="showPasswordModal(${index})">Delete</button>`;
-        container.appendChild(div);
-      });
-    }
+<section id="contact">
+  <h3>Contact Me</h3>
+  <p>Let's connect and collaborate!</p>
+  <a href="mailto:bnkg2345@gmail.com">Email</a>
+  <a href="https://www.linkedin.com/in/kethan-gowda-b-n-4aa3b5251" target="_blank">LinkedIn</a>
+  <a href="https://github.com/kethangowdabn" target="_blank">GitHub</a>
+</section>
 
-    function addFeedback(){
-      const name=document.getElementById('feedback-name').value.trim();
-      const text=document.getElementById('feedback-text').value.trim();
-      if(!name||!text){alert("Please fill in both fields."); return;}
-      feedbacks.unshift({name,text});
+<section id="feedback">
+  <h3>Feedback</h3>
+  <div id="feedback-container"></div>
+  <div class="feedback-form">
+    <h4>Submit Your Feedback</h4>
+    <input type="text" id="feedback-name" placeholder="Your Name" required>
+    <textarea id="feedback-text" rows="3" placeholder="Write your feedback here..." required></textarea>
+    <button onclick="addFeedback()">Submit Feedback</button>
+  </div>
+</section>
+
+<!-- Password Modal -->
+<div id="passwordModal" class="modal">
+  <div class="modal-content">
+    <h4>Enter Admin Password</h4>
+    <div style="position: relative; display: inline-block; width: 80%;">
+      <input type="password" id="adminPasswordInput" placeholder="Password">
+      <i id="togglePassword" class="fa fa-eye"></i>
+    </div>
+    <div style="margin-top: 1rem;">
+      <button onclick="confirmDelete()">Confirm</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="socials">
+    <a href="https://github.com/kethangowdabn" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/kethan-gowda-b-n-4aa3b5251" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="mailto:bnkg2345@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+  <p>© 2025 Kethan Gowda B N. All rights reserved.</p>
+</footer>
+
+<script>
+const adminPassword = "Kethan@8337";
+let feedbacks = JSON.parse(localStorage.getItem('feedbacks')) || [];
+let deleteIndex = null;
+
+function escapeHTML(str){return str.replace(/[&<>"']/g, tag=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[tag]));}
+function renderFeedbacks(){
+  const container=document.getElementById('feedback-container');
+  container.innerHTML='';
+  if(feedbacks.length===0){container.innerHTML='<p>No feedback yet. Be the first to submit one!</p>'; return;}
+  feedbacks.forEach((fb,index)=>{
+    const div=document.createElement('div');
+    div.classList.add('feedback');
+    div.innerHTML=`<p>"${escapeHTML(fb.text)}"</p><span>- ${escapeHTML(fb.name)}</span><button class="delete-btn" onclick="showPasswordModal(${index})">Delete</button>`;
+    container.appendChild(div);
+  });
+}
+
+function addFeedback(){
+  const name=document.getElementById('feedback-name').value.trim();
+  const text=document.getElementById('feedback-text').value.trim();
+  if(!name||!text){alert("Please fill in both fields."); return;}
+  feedbacks.unshift({name,text});
+  localStorage.setItem('feedbacks',JSON.stringify(feedbacks));
+  renderFeedbacks();
+  document.getElementById('feedback-name').value='';
+  document.getElementById('feedback-text').value='';
+}
+
+function showPasswordModal(index){
+  deleteIndex=index;
+  const modal=document.getElementById('passwordModal');
+  modal.style.display='block';
+  const input=document.getElementById('adminPasswordInput');
+  input.value=''; input.type='password'; input.classList.remove('wrong','correct');
+  document.getElementById('togglePassword').classList.remove('fa-eye-slash'); document.getElementById('togglePassword').classList.add('fa-eye');
+  input.focus();
+}
+function closeModal(){ deleteIndex=null; document.getElementById('passwordModal').style.display='none'; }
+
+function confirmDelete(){
+  const input=document.getElementById('adminPasswordInput');
+  if(input.value.trim()===adminPassword){
+    input.classList.remove('wrong'); input.classList.add('correct');
+    setTimeout(()=>{
+      feedbacks.splice(deleteIndex,1);
       localStorage.setItem('feedbacks',JSON.stringify(feedbacks));
       renderFeedbacks();
-      document.getElementById('feedback-name').value='';
-      document.getElementById('feedback-text').value='';
-    }
+      closeModal(); input.classList.remove('correct');
+    },400);
+  }else{
+    input.classList.remove('correct'); input.classList.add('wrong');
+    setTimeout(()=> input.classList.remove('wrong'),400);
+  }
+}
 
-    function showPasswordModal(index){
-      deleteIndex=index;
-      const modal=document.getElementById('passwordModal');
-      modal.style.display='block';
-      const input=document.getElementById('adminPasswordInput');
-      input.value=''; input.type='password';
-      input.classList.remove('wrong','correct');
-      document.getElementById('togglePassword').classList.remove('fa-eye-slash'); document.getElementById('togglePassword').classList.add('fa-eye');
-      input.focus();
-    }
-
-    function closeModal(){ deleteIndex=null; document.getElementById('passwordModal').style.display='none'; }
-
-    function confirmDelete(){
-      const input=document.getElementById('adminPasswordInput');
-      if(input.value.trim()===adminPassword){
-        input.classList.remove('wrong'); input.classList.add('correct');
-        setTimeout(()=>{
-          feedbacks.splice(deleteIndex,1);
-          localStorage.setItem('feedbacks',JSON.stringify(feedbacks));
-          renderFeedbacks();
-          closeModal();
-          input.classList.remove('correct');
-        },400);
-      } else {
-        input.classList.remove('correct'); input.classList.add('wrong');
-        setTimeout(()=> input.classList.remove('wrong'),400);
-      }
-    }
-
-    const toggle=document.getElementById('togglePassword');
-    const passInput=document.getElementById('adminPasswordInput');
-    toggle.addEventListener('mousedown',()=>passInput.type='text');
-    toggle.addEventListener('mouseup',()=>passInput.type='password');
-    toggle.addEventListener('mouseleave',()=>passInput.type='password');
-
-    window.onclick=function(event){if(event.target==document.getElementById('passwordModal')){closeModal();}}
-    renderFeedbacks();
-  </script>
-
-  <footer>
-    <div class="socials">
-      <a href="https://github.com/kethangowdabn" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/kethan-gowda-b-n-4aa3b5251" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:bnkg2345@gmail.com"><i class="fas fa-envelope"></i></a>
-    </div>
-    <p>© 2025 Kethan Gowda B N. All rights reserved.</p>
-  </footer>
+const toggle=document.getElementById('togglePassword');
+const passInput=document.getElementById('adminPasswordInput');
+toggle.addEventListener('mousedown',()=>passInput.type='text');
+toggle.addEventListener('mouseup',()=>passInput.type='password');
+toggle.addEventListener('mouseleave',()=>passInput.type='password');
+window.onclick=function(event){if(event.target==document.getElementById('passwordModal')){closeModal();}}
+renderFeedbacks();
+</script>
 
 </body>
 </html>
